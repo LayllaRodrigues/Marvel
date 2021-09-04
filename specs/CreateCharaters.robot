@@ -4,7 +4,7 @@ Documentation       Suite de teste do cadastro de personagens na API da Marvel
 
 Library               RequestsLibrary
 Library               Collections    
-Library                ${EXECDIR}/factories/Thanos.py                                                                            
+Library                ${EXECDIR}/resources/factories/Thanos.py                                                                            
 
 
 *Test Cases*

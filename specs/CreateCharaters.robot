@@ -2,8 +2,9 @@
 Documentation       Suite de teste do cadastro de personagens na API da Marvel
 
 
-Library               RequestsLibrary
-Library               Collections    
+Library                RequestsLibrary
+Library                Collections    
+Resource               ${EXECDIR}/resources/Base.robot                                                                           
 Library                ${EXECDIR}/resources/factories/Thanos.py                                                                            
 
 
@@ -15,29 +16,37 @@ Deve cadastrar um personagem
     &{personagem}       Factory Thanos
 
     ${response}     POST
-    ...             http://marvel.qaninja.academy/characters/
+    ...             ${BASE_URI}/characters/
     ...             json=${personagem}
     ...             headers=${headers}
+    ...             expected_status=any  
+
 
     Status Should Be        200        ${response}
+
+Não deve cadastrar com o mesmo nome
+
+    # Dado que Thanos ja existe no sistema
+
+    ${personagem}       Factory Thanos
+
+    POST        ${BASE_URI}/characters
+    ...         json=${personagem}
+    ...         headers=${HEADERS}
+    ...         expected_status=any  
+
+
+    # Quando faço uma requisição POST para a rota characters
+
+    ${response}     POST
+    ...             ${BASE_URI}/characters/
+    ...             json=${personagem}
+    ...             headers=${headers}
+    ...             expected_status=any  
+
+    # Então o código de retorno deve ser 409
     
-
-*Keywords*
-Set Client Key
-    [Arguments]         ${email}    
-
-    &{usuario}          Create Dictionary       email=${email}
-
-    ${response}         POST
-    ...                 http://marvel.qaninja.academy/accounts
-    ...                 json=${usuario}
-
-    ${client_key}       Set Variable            ${response.json()}[client_key]
-    &{HEADERS}          Create Dictionary       client_key=${client_key} 
-
-    Set Suite Variable      ${HEADERS}
-
-
+    Status Should Be        409        ${response}
 
 
 

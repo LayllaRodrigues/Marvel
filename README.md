@@ -12,3 +12,4 @@ Aprendendo:
 - Faker 
 - Suite de variaveis 
 - Modulo py para massa de teste
+- fazendo robot aceitar qq status code com expected_status=any  

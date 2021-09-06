@@ -9,8 +9,16 @@ feactures:
 
 Aprendendo:
 
-- Faker 
-- Suite de variaveis 
-- Modulo py para massa de teste
-- fazendo robot aceitar qq status code com expected_status=any  
-- Usando endpoint para voltar ambiente com status de massa de teste fixa e clean sem alterar banco de dados ou estourar limite de registros com fakers
+Configurando a Biblioteca Requests
+Testando API POST
+Obtendo o Client KEY
+Encapsulando Requisições POST
+Estratégias para definição de massa de testes
+Validando Status Code
+Analisando Requests e Responses no Report
+Validando Response Body
+Testando API GET
+Encapsulando Requisições GET
+Testando API DELETE
+Encapsulando Requisições DELETE
+Integrando Allure Reports

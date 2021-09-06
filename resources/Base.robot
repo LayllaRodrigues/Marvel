@@ -2,7 +2,6 @@
 Documentation           Aqui é onde tudo começa
 
 Library     RequestsLibrary
-
 Resource    routes/Characters.robot
 
 *Variables*
